@@ -1,9 +1,8 @@
 package com.proway.diffutils_concatadapters.model
 
-import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class PixabayVideo (
+data class PixabayVideo (
 
     @SerializedName("total")
     val total: Int,

@@ -16,6 +16,7 @@ import com.proway.diffutils_concatadapters.adapter.FeedVideoAdapter
 import com.proway.diffutils_concatadapters.adapter.HeaderAdapter
 import com.proway.diffutils_concatadapters.databinding.FragmentFeedBinding
 import com.proway.diffutils_concatadapters.model.Image
+import com.proway.diffutils_concatadapters.model.VideoConfig
 import com.proway.diffutils_concatadapters.view_model.FeedViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -31,9 +32,12 @@ class FeedFragment(private val feedType: FeedType): Fragment(R.layout.fragment_f
         viewModel.fetchImages(it)
     }
 
-
     private val observerImages = Observer<List<Image>> {
         adapterFeed.submitList(it)
+    }
+
+    private val observerVideos = Observer<List<VideoConfig>> {
+        adapterVideo.submitList(it)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -41,6 +45,7 @@ class FeedFragment(private val feedType: FeedType): Fragment(R.layout.fragment_f
         binding = FragmentFeedBinding.bind(view)
         viewModel = ViewModelProvider(this).get(FeedViewModel::class.java)
         viewModel.images.observe(viewLifecycleOwner, observerImages)
+        viewModel.videos.observe(viewLifecycleOwner, observerVideos)
 
         adapters = if (feedType == FeedType.VIDEO) ConcatAdapter(adapterVideo) else ConcatAdapter(adapterHeader, adapterFeed)
         setupRecyclerView()

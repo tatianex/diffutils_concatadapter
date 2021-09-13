@@ -28,7 +28,9 @@
                 android:layout_marginStart="8dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/imageViewPhoto" />
+                app:layout_constraintBottom_toTopOf="@+id/imageViewPhoto"
+                app:civ_border_width="2dp"
+                app:civ_border_color="@color/cardview_light_background"/>
 
             <TextView
                 android:id="@+id/nameTextView"
@@ -38,10 +40,10 @@
                 android:fontFamily="serif-monospace"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageViewAvatar"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/imageViewAvatar"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewAvatar"
                 tools:text="Name" />
 
             <ImageView

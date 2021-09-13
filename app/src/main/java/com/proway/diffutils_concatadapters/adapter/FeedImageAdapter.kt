@@ -30,7 +30,7 @@ class FeedViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
     fun bind(image: Image) {
         binding.nameTextView.text = image.user
-        Glide.with(itemView).load(image.largeImageUrl).into(binding.imageViewPhoto)
+        Glide.with(itemView).load(image.largeImageURL).into(binding.imageViewPhoto)
         Glide.with(itemView).load(image.userImageURL).into(binding.imageViewAvatar)
     }
 }

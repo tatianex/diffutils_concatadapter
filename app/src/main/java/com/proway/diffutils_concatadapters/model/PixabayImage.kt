@@ -13,7 +13,7 @@ data class Image(
     val id: Int,
     val tags: String,
     val previewURL: String,
-    val largeImageUrl: String,
+    val largeImageURL: String,
     val fullHDURL: String,
     val imageURL: String,
     val user: String,

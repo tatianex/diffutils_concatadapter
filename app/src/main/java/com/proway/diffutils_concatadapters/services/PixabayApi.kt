@@ -13,13 +13,13 @@ interface PixabayApi {
     suspend fun fetchImage(
         @Query("key") key: String = BuildConfig.API_KEY,
         @Query("q") q: String,
-        @Query("lang") lang: String = "pt",
+        @Query("lang") lang: String = "pt"
     ) : Response<Pixabay>
 
-    @GET("/api/")
+    @GET("/api/videos")
     suspend fun fetchVideos(
         @Query("key") key: String = BuildConfig.API_KEY,
         @Query("q") q: String,
-        @Query("lang") lang: String = "pt",
+        @Query("lang") lang: String = "pt"
     ) : Response<PixabayVideo>
 }
